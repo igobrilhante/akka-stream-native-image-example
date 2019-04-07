@@ -62,10 +62,6 @@ object Main extends IOApp {
   }
 
   def run(arguments: List[String]): IO[ExitCode] = {
-    //val config = ConfigFactory.parseFile(Paths.get("./reference.conf").toFile).resolve()
-
-    //println(config.root().render())
-
     val config = ConfigFactory.load()
 
     val resources = for {
