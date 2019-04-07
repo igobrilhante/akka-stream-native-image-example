@@ -16,19 +16,6 @@ debug:
 clean:
 	$(call sbt,clean)
 
-target/graalvm-native-image/example:
-	$(call sbt,graalvm-native-image:packageBin)
-
-target/example: target/graalvm-native-image/example
-	cp "target/graalvm-native-image/example" "target/example"
-
-.PHONY: package
-package: target/example
-
-.PHONY: run
-run: target/example
-	target/example
-
 target/example.jar: target/scala-2.12/example.jar
 	cp "target/scala-2.12/example.jar" "target/example.jar"
 
@@ -66,8 +53,8 @@ target/graal/example: target/example.jar
 		"target/graal/example"
 
 
-.PHONY: native-package
-native-package: target/graal/example
+.PHONY: native
+native: target/graal/example
 
 .PHONY: native-run
 native-run: target/graal/example

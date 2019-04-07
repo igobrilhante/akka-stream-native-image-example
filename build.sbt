@@ -38,14 +38,5 @@ lazy val root = (project in file("."))
     ),
     addCompilerPlugin("org.spire-math" %% "kind-projector" % "0.9.8"),
     mainClass in assembly := Some("com.github.radium226.example.Main"),
-    assemblyJarName in assembly := "example.jar",
-    graalVMNativeImageOptions := Seq(
-      "--verbose",
-      "--no-server",
-      s"-H:JNIConfigurationFiles=${baseDirectory.value}/src/main/graal/jni-config.json",
-      s"-H:ReflectionConfigurationFiles=${baseDirectory.value}/src/main/graal/reflect-config.json",
-      s"-H:DynamicProxyConfigurationFiles=${baseDirectory.value}/src/main/graal/proxy-config.json",
-      s"-H:ResourceConfigurationFiles=${baseDirectory.value}/src/main/graal/resource-config.json"
-    )
+    assemblyJarName in assembly := "example.jar"
   )
-  .enablePlugins(GraalVMNativeImagePlugin)
