@@ -38,5 +38,12 @@ lazy val root = (project in file("."))
     ),
     addCompilerPlugin("org.spire-math" %% "kind-projector" % "0.9.8"),
     mainClass in assembly := Some("com.github.radium226.example.Main"),
-    assemblyJarName in assembly := "example.jar"
+    assemblyJarName in assembly := "example.jar",
+    scalacOptions ++= Seq(
+      "-feature",
+      "-deprecation",
+      "-unchecked",
+      "-language:postfixOps",
+      "-language:higherKinds",
+      "-Ypartial-unification")
   )
